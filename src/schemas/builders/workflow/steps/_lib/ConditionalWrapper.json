@@ -1,0 +1,18 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/ConditionalWrapper.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "when": {
+            "$ref": "https://schemas.toolproof.com/v0/JobStep.json"
+        },
+        "what": {
+            "$ref": "https://schemas.toolproof.com/v0/JobStep.json"
+        }
+    },
+    "required": [
+        "when",
+        "what"
+    ],
+    "unevaluatedProperties": false
+}

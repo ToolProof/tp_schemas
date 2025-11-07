@@ -1,0 +1,94 @@
+{
+    "id": "RET-ColoredPaper",
+    "name": "ColoredPaper",
+    "formatId": "REF-hrmJuI4XhzH6uN8zCNXV",
+    "exposedSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$defs": {
+            "section": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "isMeta": {
+                                "type": "boolean",
+                                "const": true
+                            }
+                        }
+                    },
+                    {
+                        "anyOf": [
+                            {
+                                "required": [
+                                    "description"
+                                ],
+                                "properties": {
+                                    "description": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "minLength": 1
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "required": [
+                                    "sections"
+                                ],
+                                "properties": {
+                                    "sections": {
+                                        "$ref": "#/$defs/sections"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "sections": {
+                "type": "object",
+                "patternProperties": {
+                    "^[A-Za-z0-9_.-]+$": {
+                        "$ref": "#/$defs/section"
+                    }
+                },
+                "minProperties": 1,
+                "additionalProperties": false
+            }
+        },
+        "type": "object",
+        "allOf": [
+            {
+                "type": "object",
+                "required": [
+                    "semanticIdentity"
+                ],
+                "properties": {
+                    "semanticIdentity": {
+                        "enum": [
+                            "white",
+                            "yellow",
+                            "red",
+                            "green",
+                            "blue"
+                        ]
+                    }
+                }
+            },
+            {
+                "type": "object",
+                "required": [
+                    "sections"
+                ],
+                "properties": {
+                    "sections": {
+                        "$ref": "#/$defs/sections"
+                    }
+                }
+            }
+        ],
+        "unevaluatedProperties": false
+    }
+}

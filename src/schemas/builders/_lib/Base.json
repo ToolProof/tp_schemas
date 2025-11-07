@@ -1,0 +1,74 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/Base.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "Identifiable": {
+            "$anchor": "Identifiable",
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "ui": "readonly-input"
+                }
+            }
+        },
+        "Concept": {
+            "$anchor": "Concept",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/$defs/Identifiable"
+                },
+                {
+                    "type": "object",
+                    "required": [
+                        "name"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "ui": "input"
+                        },
+                        "description": {
+                            "type": "string",
+                            "minLength": 1,
+                            "ui": "textarea"
+                        }
+                    }
+                }
+            ]
+        },
+        "MetaBase": {
+            "$anchor": "MetaBase",
+            "type": "object",
+            "required": [
+                "path"
+            ],
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "$comment": "ATTENTION: format: uri"
+                }
+            }
+        },
+        "Timestamp": {
+            "$anchor": "Timestamp",
+            "type": "object",
+            "required": [
+                "timestamp"
+            ],
+            "properties": {
+                "timestamp": {
+                    "type": "string",
+                    "$comment": "ATTENTION: format: date-time",
+                    "default": "1970-01-01T00:00:00Z"
+                }
+            }
+        }
+    }
+}

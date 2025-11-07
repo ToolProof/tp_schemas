@@ -1,0 +1,53 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/ForStep.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://schemas.toolproof.com/v0/Base.json#/$defs/Identifiable"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/ForStepId"
+                },
+                "kind": {
+                    "const": "for"
+                },
+                "case": {
+                    "allOf": [
+                        {
+                            "$ref": "https://schemas.toolproof.com/v0/ConditionalWrapper.json"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "when": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "https://schemas.toolproof.com/v0/JobStep.json"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "jobId": {
+                                                    "const": "JOB-rBDIf8F1iQ6oflEbI59N"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "kind",
+                "case"
+            ]
+        }
+    ],
+    "unevaluatedProperties": false
+}

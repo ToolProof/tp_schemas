@@ -1,0 +1,130 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/ExposedSchema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required": [
+        "$schema",
+        "type"
+    ],
+    "properties": {
+        "$schema": {
+            "const": "https://json-schema.org/draft/2020-12/schema"
+        },
+        "type": {
+            "const": "object"
+        },
+        "required": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "$defs": {
+            "type": "object"
+        },
+        "allOf": {
+            "type": "array",
+            "items": {
+                "type": "object"
+            }
+        },
+        "properties": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+                "semanticIdentity": {},
+                "semanticMerit": {}
+            }
+        },
+        "additionalProperties": {
+            "const": false
+        },
+        "unevaluatedProperties": {
+            "const": false
+        }
+    },
+    "additionalProperties": false,
+    "allOf": [
+        {
+            "oneOf": [
+                {
+                    "required": [
+                        "allOf"
+                    ],
+                    "properties": {
+                        "allOf": {
+                            "type": "array",
+                            "contains": {
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "required": [
+                                            "required",
+                                            "properties"
+                                        ]
+                                    },
+                                    {
+                                        "oneOf": [
+                                            {
+                                                "$ref": "https://schemas.toolproof.com/v0/SemanticIdentity.json"
+                                            },
+                                            {
+                                                "$ref": "https://schemas.toolproof.com/v0/SemanticMerit.json"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "allOf": [
+                        {
+                            "required": [
+                                "required",
+                                "properties"
+                            ]
+                        },
+                        {
+                            "oneOf": [
+                                {
+                                    "$ref": "https://schemas.toolproof.com/v0/SemanticIdentity.json"
+                                },
+                                {
+                                    "$ref": "https://schemas.toolproof.com/v0/SemanticMerit.json"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "anyOf": [
+                {
+                    "required": [
+                        "additionalProperties"
+                    ],
+                    "properties": {
+                        "additionalProperties": {
+                            "const": false
+                        }
+                    }
+                },
+                {
+                    "required": [
+                        "unevaluatedProperties"
+                    ],
+                    "properties": {
+                        "unevaluatedProperties": {
+                            "const": false
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

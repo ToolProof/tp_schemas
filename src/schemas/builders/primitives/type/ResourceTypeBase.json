@@ -1,0 +1,33 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/ResourceTypeBase.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://schemas.toolproof.com/v0/Base.json#/$defs/Concept"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "allOf": [
+                        {
+                            "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/ResourceTypeId"
+                        }
+                    ]
+                },
+                "formatId": {
+                    "allOf": [
+                        {
+                            "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/ResourceFormatId"
+                        }
+                    ],
+                    "ui": "select"
+                }
+            },
+            "required": [
+                "formatId"
+            ]
+        }
+    ]
+}

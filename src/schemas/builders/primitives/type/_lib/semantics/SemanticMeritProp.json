@@ -1,0 +1,13 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/SemanticMeritProp.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "type": {
+            "const": "number"
+        }
+    },
+    "required": [
+        "type"
+    ]
+}

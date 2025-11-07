@@ -1,0 +1,35 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/SemanticIdentityProp.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "oneOf": [
+        {
+            "required": [
+                "type"
+            ],
+            "properties": {
+                "type": {
+                    "enum": [
+                        "string",
+                        "integer",
+                        "boolean"
+                    ]
+                }
+            }
+        },
+        {
+            "required": [
+                "enum"
+            ],
+            "properties": {
+                "enum": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1
+                }
+            }
+        }
+    ]
+}

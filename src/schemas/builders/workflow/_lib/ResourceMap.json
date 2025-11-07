@@ -1,0 +1,11 @@
+{
+  "$id": "https://schemas.toolproof.com/v0/ResourceMap.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "propertyNames": {
+    "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/ResourceId"
+  },
+  "additionalProperties": {
+    "$ref": "https://schemas.toolproof.com/v0/ResourceMetaActive.json"
+  }
+}

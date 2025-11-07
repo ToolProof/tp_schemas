@@ -1,0 +1,27 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/ResourceType.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://schemas.toolproof.com/v0/ResourceTypeBase.json"
+        },
+        {
+            "type": "object",
+            "required": [
+                "exposedSchema"
+            ],
+            "properties": {
+                "exposedSchema": {
+                    "allOf": [
+                        {
+                            "$ref": "https://schemas.toolproof.com/v0/ExposedSchema.json"
+                        }
+                    ],
+                    "ui": "editor"
+                }
+            }
+        }
+    ],
+    "unevaluatedProperties": false
+}
