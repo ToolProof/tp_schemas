@@ -66,5 +66,6 @@ export type {
   ResourceMetaPassiveJson,
   ResourceMapJson,
   WorkflowSpecJson,
+  JsonValueJson,
 } from './types/types.d.ts';
 
