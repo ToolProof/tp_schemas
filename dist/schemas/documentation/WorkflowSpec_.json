@@ -1,0 +1,26 @@
+{
+    "id": "RET-WorkflowSpec",
+    "name": "WorkflowSpec",
+    "formatId": "REF-hrmJuI4XhzH6uN8zCNXV",
+    "exposedSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "allOf": [
+            {
+                "type": "object",
+                "required": [
+                    "semanticIdentity"
+                ],
+                "properties": {
+                    "semanticIdentity": {
+                        "type": "string"
+                    }
+                }
+            },
+            {
+                "$ref": "https://schemas.toolproof.com/v0/WorkflowSpec.json"
+            }
+        ],
+        "unevaluatedProperties": false
+    }
+}

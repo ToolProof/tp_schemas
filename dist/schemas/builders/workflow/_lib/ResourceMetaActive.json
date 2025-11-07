@@ -1,0 +1,38 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/ResourceMetaActive.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://schemas.toolproof.com/v0/Base.json#/$defs/Timestamp"
+        },
+        {
+            "required": [
+                "exposedData"
+            ],
+            "properties": {
+                "exposedData": {
+                    "$ref": "https://schemas.toolproof.com/v0/JsonValue.json"
+                }
+            }
+        },
+        {
+            "oneOf": [
+                {
+                    "$ref": "https://schemas.toolproof.com/v0/Base.json#/$defs/MetaBase"
+                },
+                {
+                    "required": [
+                        "pointer"
+                    ],
+                    "properties": {
+                        "pointer": {
+                            "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/ResourceId"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "unevaluatedProperties": false
+}

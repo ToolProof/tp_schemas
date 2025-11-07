@@ -1,0 +1,39 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/SemanticMerit.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "properties": {
+            "type": "object",
+            "properties": {
+                "semanticMerit": {
+                    "$ref": "https://schemas.toolproof.com/v0/SemanticMeritProp.json"
+                },
+                "semanticIdentity": {}
+            },
+            "required": [
+                "semanticMerit"
+            ],
+            "not": {
+                "type": "object",
+                "properties": {
+                    "semanticIdentity": {}
+                },
+                "required": [
+                    "semanticIdentity"
+                ]
+            }
+        },
+        "required": {
+            "type": "array",
+            "contains": {
+                "const": "semanticMerit"
+            },
+            "not": {
+                "contains": {
+                    "const": "semanticIdentity"
+                }
+            }
+        }
+    }
+}

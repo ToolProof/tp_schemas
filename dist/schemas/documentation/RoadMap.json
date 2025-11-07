@@ -1,0 +1,96 @@
+{
+    "$id": "RET-RoadMap",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "developerId": {
+            "type": "string",
+            "pattern": "^dev_[0-9]+$"
+        },
+        "developer": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1
+                }
+            }
+        },
+        "taskNode": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "hints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "uniqueItems": true,
+                    "default": []
+                },
+                "tasks": {
+                    "type": "object",
+                    "default": {},
+                    "patternProperties": {
+                        "^[A-Za-z0-9_.-]+$": {
+                            "$ref": "#/$defs/taskNode"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        }
+    },
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "developers",
+        "developerAssignments",
+        "tasks"
+    ],
+    "properties": {
+        "developers": {
+            "type": "object",
+            "propertyNames": {
+                "$ref": "#/$defs/developerId"
+            },
+            "additionalProperties": {
+                "$ref": "#/$defs/developer"
+            },
+            "minProperties": 1
+        },
+        "developerAssignments": {
+            "$comment": "Map from fully-qualified task path to array of developerIds",
+            "type": "object",
+            "patternProperties": {
+                "^[A-Za-z0-9_.-]+$": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/developerId"
+                    },
+                    "default": []
+                }
+            },
+            "additionalProperties": false,
+            "default": {}
+        },
+        "tasks": {
+            "type": "object",
+            "minProperties": 1,
+            "patternProperties": {
+                "^[A-Za-z0-9_.-]+$": {
+                    "$ref": "#/$defs/taskNode"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

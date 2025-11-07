@@ -1,0 +1,8 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/SemanticIdentityValue.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "oneOf": [
+        { "type": "string" },
+        { "type": "integer" }
+    ]
+}

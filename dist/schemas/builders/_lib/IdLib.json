@@ -1,0 +1,78 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/IdLib.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+        "ResourceFormatId": {
+            "$anchor": "ResourceFormatId",
+            "type": "string",
+            "pattern": "^REF-.+$"
+        },
+        "ResourceTypeId": {
+            "$anchor": "ResourceTypeId",
+            "type": "string",
+            "pattern": "^RET-.+$"
+        },
+        "ResourceRoleId": {
+            "$anchor": "ResourceRoleId",
+            "type": "string",
+            "pattern": "^RER-.+$"
+        },
+        "JobId": {
+            "$anchor": "JobId",
+            "type": "string",
+            "pattern": "^JOB-.+$"
+        },
+        "JobStepId": {
+            "$anchor": "JobStepId",
+            "type": "string",
+            "pattern": "^JOS-.+$"
+        },
+        "BranchStepId": {
+            "$anchor": "BranchStepId",
+            "type": "string",
+            "pattern": "^BRS-.+$"
+        },
+        "WhileStepId": {
+            "$anchor": "WhileStepId",
+            "type": "string",
+            "pattern": "^WHS-.+$"
+        },
+        "ForStepId": {
+            "$anchor": "ForStepId",
+            "type": "string",
+            "pattern": "^FOS-.+$"
+        },
+        "StepId": {
+            "$anchor": "StepId",
+            "oneOf": [
+                {
+                    "$ref": "#/$defs/JobStepId"
+                },
+                {
+                    "$ref": "#/$defs/BranchStepId"
+                },
+                {
+                    "$ref": "#/$defs/WhileStepId"
+                },
+                {
+                    "$ref": "#/$defs/ForStepId"
+                }
+            ]
+        },
+        "WorkflowId": {
+            "$anchor": "WorkflowId",
+            "type": "string",
+            "pattern": "^WOF-.+$"
+        },
+        "WorkflowSpecId": {
+            "$anchor": "WorkflowSpecId",
+            "type": "string",
+            "pattern": "^WOS-.+$"
+        },
+        "ResourceId": {
+            "$anchor": "ResourceId",
+            "type": "string",
+            "pattern": "^RER-.+__JOS-.+$"
+        }
+    }
+}

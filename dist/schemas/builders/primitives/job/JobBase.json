@@ -1,0 +1,91 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/JobBase.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://schemas.toolproof.com/v0/Base.json#/$defs/Concept"
+        },
+        {
+            "type": "object",
+            "required": [
+                "isPredicate",
+                "resources"
+            ],
+            "properties": {
+                "id": {
+                    "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/JobId"
+                },
+                "isPredicate": {
+                    "type": "boolean",
+                    "ui": "checkbox"
+                },
+                "resources": {
+                    "type": "object",
+                    "required": [
+                        "inputs",
+                        "outputs"
+                    ],
+                    "properties": {
+                        "inputs": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/ResourceRoleId"
+                            },
+                            "uniqueItems": true,
+                            "ui": "multi-select"
+                        },
+                        "outputs": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/ResourceRoleId"
+                            },
+                            "uniqueItems": true,
+                            "ui": "multi-select"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "isPredicate": {
+                        "const": true
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "isInternal"
+                ],
+                "properties": {
+                    "isInternal": {
+                        "type": "boolean",
+                        "ui": "checkbox"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "required": [
+                    "isInternal"
+                ],
+                "properties": {
+                    "isInternal": {
+                        "const": true
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "name": {
+                        "$ref": "https://schemas.toolproof.com/v0/Internal.json"
+                    }
+                }
+            }
+        }
+    ],
+    "unevaluatedProperties": false
+}

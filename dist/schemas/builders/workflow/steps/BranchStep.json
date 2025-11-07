@@ -1,0 +1,34 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/BranchStep.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://schemas.toolproof.com/v0/Base.json#/$defs/Identifiable"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/BranchStepId"
+                },
+                "kind": {
+                    "const": "branch"
+                },
+                "cases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "https://schemas.toolproof.com/v0/ConditionalWrapper.json"
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            },
+            "required": [
+                "kind",
+                "cases"
+            ]
+        }
+    ],
+    "unevaluatedProperties": false
+}

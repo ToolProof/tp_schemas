@@ -1,0 +1,19 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/ResourceFormatBase.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://schemas.toolproof.com/v0/Base.json#/$defs/Concept"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "https://schemas.toolproof.com/v0/IdLib.json#/$defs/ResourceFormatId"
+                }
+            }
+        }
+    ],
+    "unevaluatedProperties": false
+}

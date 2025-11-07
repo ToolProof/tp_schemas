@@ -1,0 +1,30 @@
+{
+    "$id": "https://schemas.toolproof.com/v0/JsonValue.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "oneOf": [
+        {
+            "type": "string"
+        },
+        {
+            "type": "number"
+        },
+        {
+            "type": "boolean"
+        },
+        {
+            "type": "null"
+        },
+        {
+            "type": "array",
+            "items": {
+                "$ref": "https://schemas.toolproof.com/v0/JsonValue.json"
+            }
+        },
+        {
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "https://schemas.toolproof.com/v0/JsonValue.json"
+            }
+        }
+    ]
+}
